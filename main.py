@@ -1,27 +1,18 @@
 import pygame as pg;
-from random import randint;
+
+from Map import Map;
 
 pg.init();
-#                           17  x  11
-main = pg.display.set_mode((1088, 640));
 
-wallHor = [[3 for _ in range(0, 200)] for _ in range(0, 5)];
-wallVert = [3 for _ in range(0,8)];
-map = wallHor + [wallVert + [randint(1,2) for _ in range(0,200)] + wallVert for _ in range(0,150)] + wallHor;
+w = 960;
+h = 640;
+size = 32;
+
+main = pg.display.set_mode((w, h));
+map = Map(int(size * 3), int(size * 3));
 
 x = 50;
 y = 50;
-
-def v(code):
-    match(code):
-        case 1:
-            return (66,66,66);
-        case 2:
-            return (33,33,33);
-        case 3:
-            return (0,0,0);
-        case _:
-            return (0,0,0);
 
 while(True):
     for e in pg.event.get():
@@ -39,11 +30,11 @@ while(True):
                 x += 1;
 
     main.fill((0,0,0));
-
-    for i, c in enumerate(map[y-5:y+6]):
-        for j, r in enumerate(c[x-8:x+9]):
-            pg.draw.rect(main, v(r), pg.Rect(j*64, i*64, 64, 64));
+    # marg 16 10
+    for i, c in enumerate(map.rows[y-int(h/size):y+int(h/size)+1]):
+        for j, r in enumerate(c[x-int(w/size):x+int(w/size+1)]):
+            pg.draw.rect(main, r.c, pg.Rect(j*size, i*size, size, size));
     
-    pg.draw.rect(main, (140, 50, 77), pg.Rect(8*64, 5*64, 64, 64));
+    pg.draw.rect(main, (140, 50, 77), pg.Rect((w/size)/2*size, (h/size)/2*size, size, size));
 
     pg.display.flip();
