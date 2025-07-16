@@ -1,5 +1,4 @@
 import pygame as pg;
-
 from Map import Map;
 
 pg.init();
@@ -20,17 +19,17 @@ while(True):
             exit();
 
         if(e.type == pg.KEYDOWN):
-            if(e.key == pg.K_w):
+            print(map.rows[y][x])
+            if(e.key == pg.K_w and map.rows[y - 1][x].passable):
                 y -= 1;
-            if(e.key == pg.K_a):
+            if(e.key == pg.K_a and map.rows[y][x - 1].passable):
                 x -= 1;
-            if(e.key == pg.K_s):
+            if(e.key == pg.K_s and map.rows[y + 1][x].passable):
                 y += 1;
-            if(e.key == pg.K_d):
+            if(e.key == pg.K_d and map.rows[y][x + 1].passable):
                 x += 1;
 
     main.fill((0,0,0));
-    # marg 16 10
     for i, c in enumerate(map.rows[y-int(h/size):y+int(h/size)+1]):
         for j, r in enumerate(c[x-int(w/size):x+int(w/size+1)]):
             pg.draw.rect(main, r.c, pg.Rect(j*size, i*size, size, size));
