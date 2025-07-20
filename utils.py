@@ -11,12 +11,18 @@ def v(c):
             return (13, 58, 26);
         
         # ruudut
-        case "1":
+        case "1": # hiekkaväri 1
             return (140, 122, 73);
-        case "2":
+        case "2": # hiekkaväri 2
             return (117, 101, 56);
-        case "0":
-            return (64, 54, 26);
+        
+
+        case "v": # reunavuoret vaalea
+            return (136, 136, 136);
+        case "w": # reunavuoret keski
+            return (105, 105, 105);
+        case "u": # reunavuoret tumma
+            return (88, 88, 88);
         
         # ei variä
         case ".":
