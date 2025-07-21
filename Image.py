@@ -6,8 +6,6 @@ class Image:
     size = 32;
     def __init__(self, id):
         self.id = id;
-    
-    
 
     @classmethod
     def parse(self, bits):
@@ -30,7 +28,7 @@ class Image:
         return pg.transform.scale(p, (64, 64));
 
     @classmethod
-    def get(self, id):
+    def make(self, id):
         match(id):
             case "p": # pelaajahahmo
                 bits = \
@@ -144,4 +142,17 @@ class Image:
             #         "0000000000000000";
         
         return Image.parse(bits);
+
+    @classmethod
+    def init(cls):
+        cls.images = {
+            "p": cls.make("p"),
+            "1": cls.make("1"),
+            "2": cls.make("2"),
+            None: cls.make(None)
+        };
+
+    @classmethod
+    def get(cls, id):
+        return cls.images[id];
 

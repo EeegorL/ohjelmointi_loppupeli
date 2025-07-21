@@ -2,6 +2,7 @@ import pygame as pg;
 from Map import Map;
 from Image import Image;
 
+Image.init();
 pg.init();
 
 w = 960;
