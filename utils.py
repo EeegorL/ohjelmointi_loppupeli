@@ -24,6 +24,17 @@ def v(c):
         case "u": # reunavuoret tumma
             return (88, 88, 88);
         
+
+        # kolikon keltainen
+        case "t": # tumma
+            return (201, 178, 26);
+        case "y": # vaalea
+            return (227, 200, 25);
+
+        # testi
+        case "f":
+            return (255, 0, 0);
+
         # ei variä
         case ".":
             return None;

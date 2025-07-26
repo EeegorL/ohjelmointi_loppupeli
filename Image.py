@@ -17,7 +17,8 @@ class Image:
             for j, r in enumerate(rows):
                 for i, c in enumerate(r):
                     vari = v(c);
-                    pg.draw.rect(p, vari, pg.Rect(i*2, j*2, 2, 2));
+                    if(vari != None):
+                        pg.draw.rect(p, vari, pg.Rect(i*2, j*2, 2, 2));
         else:
             for j, r in enumerate(rows):
                 for i, c in enumerate(r):
@@ -65,7 +66,7 @@ class Image:
                     "......aaaaaaeeeeeeeeaaaaaa...... "+\
                     "......aaaaaallllllllaaaaaa......";
                     
-            
+        
             case "1": # hiekka 1
                 bits =  \
                     "2222221121111122 "+\
@@ -103,7 +104,44 @@ class Image:
                     "2222222111112221 " +\
                     "1112222212222112";
             
-            case _: # vwu
+            case "kolikke":
+                bits =  \
+                    "................ " +\
+                    "................ " +\
+                    "...tttttttttt... " +\
+                    "..ttyyyyyyyytt.. " +\
+                    "..tyyttttttyyt.. " +\
+                    "..tyytyyyytyyt.. " +\
+                    "..tyyttyytyyyt.. " +\
+                    "..tyytytyyyyyt.. " +\
+                    "..tyytytyyyyyt.. " +\
+                    "..tyyttyytyyyt.. " +\
+                    "..tyytyyyytyyt.. " +\
+                    "..tyyttttttyyt.. " +\
+                    "..ttyyyyyyyytt.. " +\
+                    ",,,tttttttttt... " +\
+                    "................";
+
+            case "testi": # testipunainen
+                bits= \
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................ " +\
+                    "................";
+            
+            case _: # kiviseinät (mapin reunat)
                 bits = \
                     "uuuuuuuuvvwvvvuw "+\
                     "uuuuuuuvwwwwwvvv "+\
@@ -121,25 +159,6 @@ class Image:
                     "vvvwwwvvuuuuuuuu "+\
                     "vwwwwwwvvuvvvvuu "+\
                     "vwuuuuwwwvvwwvvv";
-                
-            # case _:
-            #     bits =  \
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000 " +\
-            #         "0000000000000000";
         
         return Image.parse(bits);
 
@@ -149,6 +168,8 @@ class Image:
             "p": cls.make("p"),
             "1": cls.make("1"),
             "2": cls.make("2"),
+            "kolikke": cls.make("kolikke"),
+            "testi": cls.make("testi"),
             None: cls.make(None)
         };
 
