@@ -12,5 +12,7 @@ class Event:
 
     def action(self):
         match(self.code):
-            case "kolikke":
+            case "kolikko":
                 self.player["coins"] += 1;
+            case "lippu":
+                self.player["onLippu"] = True;

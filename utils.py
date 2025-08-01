@@ -31,9 +31,11 @@ def v(c):
         case "y": # vaalea
             return (227, 200, 25);
 
-        # testi
-        case "f":
-            return (255, 0, 0);
+        # lippu
+        case "c": # valkoinen
+            return (255, 255, 255);
+        case "x": # tutun junaliikenteen vihreä
+            return (28, 132, 57);
 
         # ei variä
         case ".":

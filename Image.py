@@ -104,24 +104,42 @@ class Image:
                     "2222222111112221 " +\
                     "1112222212222112";
             
-            case "kolikke":
+            case "kolikko":
                 bits =  \
                     "................ " +\
                     "................ " +\
-                    "...tttttttttt... " +\
-                    "..ttyyyyyyyytt.. " +\
-                    "..tyyttttttyyt.. " +\
-                    "..tyytyyyytyyt.. " +\
-                    "..tyyttyytyyyt.. " +\
-                    "..tyytytyyyyyt.. " +\
-                    "..tyytytyyyyyt.. " +\
-                    "..tyyttyytyyyt.. " +\
-                    "..tyytyyyytyyt.. " +\
-                    "..tyyttttttyyt.. " +\
-                    "..ttyyyyyyyytt.. " +\
-                    ",,,tttttttttt... " +\
+                    "................ " +\
+                    "....tttttttt.... " +\
+                    "...tyyyyyyyyt... " +\
+                    "...tytyyyytyt... " +\
+                    "...tyttyytyyt... " +\
+                    "...tytytyyyyt... " +\
+                    "...tytytyyyyt... " +\
+                    "...tyttyytyyt... " +\
+                    "...tytyyyytyt... " +\
+                    "...tyttttttyt... " +\
+                    "....tttttttt.... " +\
+                    "................ " +\
                     "................";
-
+            case "lippu":
+                bits = \
+                    "....cccccccccc.. " +\
+                    "...ccccccccxxcc. " +\
+                    "...cuuuuuucxxcc. " +\
+                    "...ccccccccccc.. " +\
+                    "...cccccccccc... " +\
+                    "...cuuuuuuccc... " +\
+                    "...cccccccccc... " +\
+                    "...cccccccccc... " +\
+                    "...cuuuuccccc... " +\
+                    "...cccccccccc... " +\
+                    "...ccccuuuccc... " +\
+                    "...ccccccuucc... " +\
+                    "...cccuuccccc... " +\
+                    "..cccccuuuccc... " +\
+                    ".ccccccccuccc... " +\
+                    ".ccccccccccc....";
+                
             case "testi": # testipunainen
                 bits= \
                     "................ " +\
@@ -168,8 +186,8 @@ class Image:
             "p": cls.make("p"),
             "1": cls.make("1"),
             "2": cls.make("2"),
-            "kolikke": cls.make("kolikke"),
-            "testi": cls.make("testi"),
+            "kolikko": cls.make("kolikko"),
+            "lippu": cls.make("lippu"),
             None: cls.make(None)
         };
 
