@@ -1,10 +1,6 @@
 from random import randint;
 from Tile import Tile;
 
-
-
-    
-
 class Map:
     def __init__(self, w, h, player):
         self.w = w;
@@ -14,6 +10,7 @@ class Map:
         def randEvt(m):
             if(randint(1, 1000) == 1 and not m.lippuAsetettu):
                 m.lippuAsetettu = True;
+                print("Lippu on jossain lojumassa...");
                 return "lippu";
 
             rand = randint(1,10);

@@ -2,7 +2,6 @@ import pygame as pg;
 from Map import Map;
 from Image import Image;
 from sys import exit as _exit;
-from random import randint;
 
 Image.init();
 pg.init();
@@ -36,6 +35,7 @@ actionPressed = False;
 font1 = pg.font.SysFont("Arial", 36);
 font2  = pg.font.SysFont("Arial", 24);
 font3 = pg.font.SysFont("Arial", 16);
+font4 = pg.font.SysFont("Arial", 14);
 
 gameState = 0;
 
@@ -84,6 +84,18 @@ while(True):
                 if(e.key == pg.K_d and map.rows[pY][pX + 1].passable):
                     player["x"] += 1;
                 if(e.key == pg.K_SPACE and (player["tarpeeksiKolikoita"] or player["onLippu"])):
+                    l1 = font1.render(f"Voitit!", True, (255,255,255));
+                    l2 = font2.render(f"{"Löysit lipun!" if player['onLippu'] else "Sait ostettua Maunolle uuden lipun!"}", True, (255,255,255));
+                    l3 = font3.render("Mauno pääsee nyt turvallisesti kotiinsa perheen luo. Kiitos avusta!", True, (255,255,255));
+                    l4 = font3.render("Voit sulkea pelin painamalla ESCAPE-näppäintä", True, (255,255,255));
+
+                    if((player["onLippu"] and player["coins"] > 0) or (player["coins"] > 50)):
+                        ex = player["coins"] if player["onLippu"] else player["coins"] - 50;
+                        if(ex < 10): l3 = font3.render("Keräsit pari lanttia ylimääräistä, Mauno saa ostettua vaikkapa sipsejä matkalle!", True, (255,255,255));
+                        elif(10 < ex < 25): l3 = font3.render("Keräsit kohtalaisen summan ylimääräistäkin, riittää varmaan Maunon junalounaaseen?", True, (255,255,255));
+                        elif(25 <= ex < 30): l3 = font3.render("Noukit maasta aikamoisen summan, Mauno voisi ostaa vaikkapa tuliaisia!", True, (255,255,255));
+                        else: l3 = font4.render("Keräsit... noin ison summan? Keskityitkö lipun hankkimiseen vai muuten vain kiiltäviin kolikoihin? Joka tapauksessa, Mauno palaa kotiin rikkaana!", True, (255,255,255));
+                    
                     gameState = 2;
             
                 if(e.key == pg.K_e):
@@ -120,6 +132,15 @@ while(True):
         for e in pg.event.get():
             if(e.type == pg.QUIT):
                 _exit();
-        main.fill((255,255,0))
+            if(e.type == pg.KEYDOWN):
+                if(e.key == pg.K_ESCAPE):
+                    _exit();
+
+        main.fill((191, 175, 33));
+        main.blit(l1, (main.get_width()/2 - l1.get_width()/2, 50));
+        main.blit(l2, (main.get_width()/2 - l2.get_width()/2, 100));
+        main.blit(l3, (main.get_width()/2 - l3.get_width()/2, 150));
+        main.blit(l4, (main.get_width()/2 - l4.get_width()/2, 250));
+
     pg.display.flip();
     kello.tick(30);

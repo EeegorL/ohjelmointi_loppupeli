@@ -1,7 +1,6 @@
 import pygame as pg;
 from utils import v;
 
-
 class Image:
     size = 32;
     def __init__(self, id):
@@ -66,7 +65,6 @@ class Image:
                     "......aaaaaaeeeeeeeeaaaaaa...... "+\
                     "......aaaaaallllllllaaaaaa......";
                     
-        
             case "1": # hiekka 1
                 bits =  \
                     "2222221121111122 "+\
@@ -139,25 +137,6 @@ class Image:
                     "..cccccuuuccc... " +\
                     ".ccccccccuccc... " +\
                     ".ccccccccccc....";
-                
-            case "testi": # testipunainen
-                bits= \
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................ " +\
-                    "................";
             
             case _: # kiviseinät (mapin reunat)
                 bits = \
@@ -194,4 +173,3 @@ class Image:
     @classmethod
     def get(cls, id):
         return cls.images[id];
-
